@@ -44,43 +44,36 @@
     }
 
     .content {
-      display: grid;
-      grid-template-columns: 1.3fr 0.8fr;
+      display: flex;
       gap: 28px;
-      align-items: start;
+      align-items: stretch;
     }
 
     .text {
+      flex: 1.45;
       font-size: 18px;
       line-height: 1.75;
       text-align: justify;
-      column-count: 2;
-      column-gap: 26px;
     }
 
     .paragraph {
       margin-bottom: 14px;
-      break-inside: avoid;
     }
 
     .side-image {
+      flex: 0.95;
       border: 1px solid #222;
       padding: 8px;
       background: #fffaf0;
+      display: flex;
     }
 
     .side-image img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
       filter: grayscale(25%) contrast(95%) sepia(12%);
-    }
-
-    .caption {
-      font-size: 13px;
-      text-align: center;
-      margin-top: 8px;
-      font-style: italic;
-      color: #333;
     }
 
     .select-box {
@@ -171,11 +164,15 @@
 
     @media (max-width: 850px) {
       .content {
-        grid-template-columns: 1fr;
+        flex-direction: column;
       }
 
-      .text {
-        column-count: 1;
+      .side-image {
+        height: auto;
+      }
+
+      .side-image img {
+        height: auto;
       }
     }
   </style>
@@ -345,7 +342,6 @@
 
     <div class="side-image">
       <img src="lisa.png" alt="Lisa Hannover'de mimarlık okuyor">
-      <div class="caption">Lisa, Hannover’de mimarlık öğrencisi.</div>
     </div>
 
   </div>
