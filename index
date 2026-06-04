@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seçmeli Metin Etkinliği</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 30px;
+      color: #222;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #2c3e50;
+    }
+
+    .image-wrapper {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+
+    .text {
+      font-size: 20px;
+      line-height: 2.1;
+      text-align: justify;
+    }
+
+    .paragraph {
+      margin-bottom: 18px;
+    }
+
+    .select-box {
+      position: relative;
+      display: inline-block;
+      width: var(--w);
+      margin: 0 3px;
+      vertical-align: baseline;
+    }
+
+    .blank {
+      width: 100%;
+      height: 34px;
+      padding: 4px 6px;
+      border: none;
+      border-bottom: 2px solid #3498db;
+      background: #eef6ff;
+      color: #2c3e50;
+      font-size: 17px;
+      cursor: pointer;
+      border-radius: 5px 5px 0 0;
+      box-sizing: border-box;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .options {
+      display: none;
+      position: absolute;
+      top: 38px;
+      left: 0;
+      width: 100%;
+      background: white;
+      border: 1px solid #3498db;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 10;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
+      padding: 10px 8px;
+      background: white;
+      border: none;
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    .options button:hover {
+      background: #eaf4ff;
+    }
+
+    .select-box.open .options {
+      display: block;
+    }
+
+    .correct {
+      background: #d4f8d4 !important;
+      border-bottom-color: #27ae60 !important;
+    }
+
+    .wrong {
+      background: #ffd6d6 !important;
+      border-bottom-color: #e74c3c !important;
+    }
+
+    .check-btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Lisa’nın Hannover’deki Hayatı</h1>
+
+  <div class="image-wrapper">
+    <img src="lisa-hannover.png" alt="Lisa Hannover'de mimarlık okuyor">
+  </div>
+
+  <div class="text">
+
+    <div class="paragraph">
+      Merhaba, ben Lisa. Ben Leibniz Üniversitesinde mimarlık okuyorum. Mimarlık zor bir bölüm
+
+      <span class="select-box" style="--w: 100px;" data-answer="bu yüzden">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>çünkü</button>
+          <button>bu yüzden</button>
+        </span>
+      </span>
+
+      ben her gün
+
+      <span class="select-box" style="--w: 170px;" data-answer="ders çalışıyorum.">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>ders çalışıyorum.</button>
+          <button>öğreniyorum.</button>
+        </span>
+      </span>
+
+      Bunun için
+
+      <span class="select-box" style="--w: 75px;" data-answer="bazen">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>hiç</button>
+          <button>bazen</button>
+        </span>
+      </span>
+
+      kütüphaneye gidiyorum,
+
+      <span class="select-box" style="--w: 75px;" data-answer="bazen">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>bazen</button>
+          <button>hiç</button>
+        </span>
+      </span>
+
+      de evde çalışıyorum. Sınav haftasında ise çok az uyuyorum.
+    </div>
+
+    <div class="paragraph">
+      Siz daha önce Hannover’e
+
+      <span class="select-box" style="--w: 165px;" data-answer="geldiniz mi?">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>geldiniz mi?</button>
+          <button>geliyor musunuz?</button>
+        </span>
+      </span>
+
+      Hannover, Almanya’nın
+
+      <span class="select-box" style="--w: 105px;" data-answer="kuzeyinde">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>güneyinde</button>
+          <button>kuzeyinde</button>
+        </span>
+      </span>
+
+      bir şehir. Berlin’den daha
+
+      <span class="select-box" style="--w: 80px;" data-answer="küçük">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>büyük</button>
+          <button>küçük</button>
+        </span>
+      </span>,
+
+      Bonn’dan daha
+
+      <span class="select-box" style="--w: 80px;" data-answer="büyük.">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>büyük.</button>
+          <button>küçük.</button>
+        </span>
+      </span>
+
+      Yani pek kalabalık değil. Hannover, Almanya’nın
+
+      <span class="select-box" style="--w: 105px;" data-answer="en yeşil">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>daha yeşil</button>
+          <button>en yeşil</button>
+        </span>
+      </span>
+
+      şehri. İşte ben bu şehirde okuyorum.
+    </div>
+
+    <div class="paragraph">
+      Dersim genelde sabah (09.15)
+
+      <span class="select-box" style="--w: 190px;" data-answer="dokuzu çeyrek geçe">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>dokuzu çeyrek geçe</button>
+          <button>dokuza çeyrek kala</button>
+        </span>
+      </span>
+
+      başlıyor ve saat (13.00)
+
+      <span class="select-box" style="--w: 105px;" data-answer="bire kadar">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>birden</button>
+          <button>bire kadar</button>
+        </span>
+      </span>
+
+      devam ediyor. Ben saat yedide kalkıyorum ve her sabah dersten
+
+      <span class="select-box" style="--w: 75px;" data-answer="önce">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>önce</button>
+          <button>sonra</button>
+        </span>
+      </span>
+
+      ormanda yürüyüş yapıyorum. Yürüyüş
+
+      <span class="select-box" style="--w: 105px;" data-answer="yaptıktan">
+        <button class="blank">---</button>
+        <span class="options">
+          <button>yapmadan</button>
+          <button>yaptıktan</button>
+        </span>
+      </span>
+
+      sonra da bisikletimle okuluma gidiyorum. Hannover genelde yağmurlu, bu yüzden bazen okula ıslak gidiyorum. :)
+    </div>
+
+    <div class="paragraph">
+      Bizim üniversitemizin ana binası aslında eski bir saray! Bir sarayda mimarlık okumak gerçekten çok ilginç.
+      Sizi de Hannover'e bekliyorum. Bu yeşil şehri ve üniversiteyi beraber gezelim!
+    </div>
+
+  </div>
+
+  <button class="check-btn" onclick="checkAnswers()">Kontrol Et</button>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  const boxes = document.querySelectorAll(".select-box");
+
+  boxes.forEach(box => {
+    const blank = box.querySelector(".blank");
+    const options = box.querySelectorAll(".options button");
+
+    blank.addEventListener("click", function(event) {
+      event.stopPropagation();
+
+      boxes.forEach(otherBox => {
+        if (otherBox !== box) {
+          otherBox.classList.remove("open");
+        }
+      });
+
+      box.classList.toggle("open");
+    });
+
+    options.forEach(option => {
+      option.addEventListener("click", function(event) {
+        event.stopPropagation();
+
+        blank.textContent = option.textContent;
+        blank.dataset.selected = option.textContent;
+
+        blank.classList.remove("correct", "wrong");
+        box.classList.remove("open");
+      });
+    });
+  });
+
+  document.addEventListener("click", function() {
+    boxes.forEach(box => box.classList.remove("open"));
+  });
+
+  function checkAnswers() {
+    let correctCount = 0;
+    let total = boxes.length;
+
+    boxes.forEach(box => {
+      const blank = box.querySelector(".blank");
+      const selected = blank.dataset.selected;
+      const answer = box.dataset.answer;
+
+      blank.classList.remove("correct", "wrong");
+
+      if (selected === answer) {
+        blank.classList.add("correct");
+        correctCount++;
+      } else {
+        blank.classList.add("wrong");
+      }
+    });
+
+    document.getElementById("result").textContent =
+      "Sonuç: " + correctCount + " / " + total + " doğru";
+  }
+</script>
+
+</body>
+</html>
