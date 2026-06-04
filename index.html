@@ -6,74 +6,90 @@
   <title>Lisa’nın Hannover’deki Hayatı</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 24px;
+      padding: 16px;
       background: #e8e4dc;
       color: #1f1f1f;
       font-family: Georgia, "Times New Roman", serif;
     }
 
     .page {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: auto;
       background: #f8f4ea;
-      padding: 32px;
+      padding: 24px 26px;
       border: 1px solid #222;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.16);
     }
 
     .newspaper-title {
       text-align: center;
       border-bottom: 3px double #222;
-      padding-bottom: 12px;
-      margin-bottom: 22px;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
     }
 
     .newspaper-title h1 {
       margin: 0;
-      font-size: 38px;
-      letter-spacing: 1px;
+      font-size: 32px;
+      letter-spacing: 0.5px;
       font-weight: normal;
     }
 
     .newspaper-title p {
       margin: 6px 0 0;
-      font-size: 15px;
+      font-size: 14px;
       font-style: italic;
     }
 
     .content {
       display: flex;
-      gap: 28px;
+      gap: 20px;
       align-items: stretch;
     }
 
     .text {
-      flex: 1.45;
-      font-size: 18px;
-      line-height: 1.75;
+      flex: 1.6;
+      font-size: 16px;
+      line-height: 1.62;
       text-align: justify;
     }
 
     .paragraph {
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .side-image {
-      flex: 0.95;
+      flex: 0.78;
       border: 1px solid #222;
-      padding: 8px;
+      padding: 6px;
       background: #fffaf0;
       display: flex;
+      flex-direction: column;
+      align-self: stretch;
     }
 
     .side-image img {
       width: 100%;
-      height: 100%;
+      flex: 1;
+      min-height: 0;
       object-fit: cover;
       display: block;
       filter: grayscale(25%) contrast(95%) sepia(12%);
+    }
+
+    .caption {
+      font-size: 12px;
+      text-align: center;
+      margin-top: 6px;
+      font-style: italic;
+      color: #333;
+      line-height: 1.3;
     }
 
     .select-box {
@@ -86,14 +102,14 @@
 
     .blank {
       width: 100%;
-      height: 28px;
-      padding: 2px 5px;
+      height: 26px;
+      padding: 2px 4px;
       border: none;
       border-bottom: 1px solid #111;
       background: #f1eadc;
       color: #111;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 15px;
+      font-size: 14px;
       cursor: pointer;
       box-sizing: border-box;
       text-align: center;
@@ -104,7 +120,7 @@
     .options {
       display: none;
       position: absolute;
-      top: 31px;
+      top: 29px;
       left: 0;
       width: 100%;
       background: #fffaf0;
@@ -116,13 +132,13 @@
     .options button {
       display: block;
       width: 100%;
-      padding: 8px 6px;
+      padding: 7px 5px;
       background: #fffaf0;
       border: none;
       border-bottom: 1px solid #ddd;
       text-align: center;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 14px;
+      font-size: 13px;
       cursor: pointer;
       box-sizing: border-box;
     }
@@ -146,19 +162,19 @@
     }
 
     .check-btn {
-      margin-top: 24px;
-      padding: 10px 22px;
+      margin-top: 18px;
+      padding: 9px 18px;
       background: #222;
       color: #f8f4ea;
       border: none;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 17px;
+      font-size: 15px;
       cursor: pointer;
     }
 
     .result {
-      margin-top: 14px;
-      font-size: 17px;
+      margin-top: 10px;
+      font-size: 15px;
       font-weight: bold;
     }
 
@@ -168,11 +184,12 @@
       }
 
       .side-image {
-        height: auto;
+        align-self: auto;
       }
 
       .side-image img {
         height: auto;
+        flex: none;
       }
     }
   </style>
@@ -194,7 +211,7 @@
       <div class="paragraph">
         Merhaba, ben Lisa. Ben Leibniz Üniversitesinde mimarlık okuyorum. Mimarlık zor bir bölüm
 
-        <span class="select-box" style="--w: 95px;" data-answer="bu yüzden">
+        <span class="select-box" style="--w: 88px;" data-answer="bu yüzden">
           <button class="blank">---</button>
           <span class="options">
             <button>çünkü</button>
@@ -204,7 +221,7 @@
 
         ben her gün
 
-        <span class="select-box" style="--w: 150px;" data-answer="ders çalışıyorum.">
+        <span class="select-box" style="--w: 138px;" data-answer="ders çalışıyorum.">
           <button class="blank">---</button>
           <span class="options">
             <button>ders çalışıyorum.</button>
@@ -214,7 +231,7 @@
 
         Bunun için
 
-        <span class="select-box" style="--w: 65px;" data-answer="bazen">
+        <span class="select-box" style="--w: 60px;" data-answer="bazen">
           <button class="blank">---</button>
           <span class="options">
             <button>hiç</button>
@@ -224,7 +241,7 @@
 
         kütüphaneye gidiyorum,
 
-        <span class="select-box" style="--w: 65px;" data-answer="bazen">
+        <span class="select-box" style="--w: 60px;" data-answer="bazen">
           <button class="blank">---</button>
           <span class="options">
             <button>bazen</button>
@@ -238,7 +255,7 @@
       <div class="paragraph">
         Siz daha önce Hannover’e
 
-        <span class="select-box" style="--w: 145px;" data-answer="geldiniz mi?">
+        <span class="select-box" style="--w: 132px;" data-answer="geldiniz mi?">
           <button class="blank">---</button>
           <span class="options">
             <button>geldiniz mi?</button>
@@ -248,7 +265,7 @@
 
         Hannover, Almanya’nın
 
-        <span class="select-box" style="--w: 95px;" data-answer="kuzeyinde">
+        <span class="select-box" style="--w: 88px;" data-answer="kuzeyinde">
           <button class="blank">---</button>
           <span class="options">
             <button>güneyinde</button>
@@ -258,7 +275,7 @@
 
         bir şehir. Berlin’den daha
 
-        <span class="select-box" style="--w: 70px;" data-answer="küçük">
+        <span class="select-box" style="--w: 64px;" data-answer="küçük">
           <button class="blank">---</button>
           <span class="options">
             <button>büyük</button>
@@ -268,7 +285,7 @@
 
         Bonn’dan daha
 
-        <span class="select-box" style="--w: 70px;" data-answer="büyük.">
+        <span class="select-box" style="--w: 64px;" data-answer="büyük.">
           <button class="blank">---</button>
           <span class="options">
             <button>büyük.</button>
@@ -278,7 +295,7 @@
 
         Yani pek kalabalık değil. Hannover, Almanya’nın
 
-        <span class="select-box" style="--w: 95px;" data-answer="en yeşil">
+        <span class="select-box" style="--w: 88px;" data-answer="en yeşil">
           <button class="blank">---</button>
           <span class="options">
             <button>daha yeşil</button>
@@ -292,7 +309,7 @@
       <div class="paragraph">
         Dersim genelde sabah (09.15)
 
-        <span class="select-box" style="--w: 170px;" data-answer="dokuzu çeyrek geçe">
+        <span class="select-box" style="--w: 154px;" data-answer="dokuzu çeyrek geçe">
           <button class="blank">---</button>
           <span class="options">
             <button>dokuzu çeyrek geçe</button>
@@ -302,7 +319,7 @@
 
         başlıyor ve saat (13.00)
 
-        <span class="select-box" style="--w: 95px;" data-answer="bire kadar">
+        <span class="select-box" style="--w: 88px;" data-answer="bire kadar">
           <button class="blank">---</button>
           <span class="options">
             <button>birden</button>
@@ -312,7 +329,7 @@
 
         devam ediyor. Ben saat yedide kalkıyorum ve her sabah dersten
 
-        <span class="select-box" style="--w: 65px;" data-answer="önce">
+        <span class="select-box" style="--w: 60px;" data-answer="önce">
           <button class="blank">---</button>
           <span class="options">
             <button>önce</button>
@@ -322,7 +339,7 @@
 
         ormanda yürüyüş yapıyorum. Yürüyüş
 
-        <span class="select-box" style="--w: 95px;" data-answer="yaptıktan">
+        <span class="select-box" style="--w: 88px;" data-answer="yaptıktan">
           <button class="blank">---</button>
           <span class="options">
             <button>yapmadan</button>
@@ -342,6 +359,7 @@
 
     <div class="side-image">
       <img src="lisa.png" alt="Lisa Hannover'de mimarlık okuyor">
+      <div class="caption">Lisa, Hannover’de mimarlık öğrencisi.</div>
     </div>
 
   </div>
@@ -376,7 +394,6 @@
 
         blank.textContent = option.textContent;
         blank.dataset.selected = option.textContent;
-
         blank.classList.remove("correct", "wrong");
         box.classList.remove("open");
       });
